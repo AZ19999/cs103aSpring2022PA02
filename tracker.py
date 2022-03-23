@@ -84,7 +84,7 @@ def process_choice(choice):
         rowid = int(input("rowid: "))
         category.delete(rowid)
     elif choice == '9':
-        print("unimplemented")
+        category.summarize("year")
 
     else:
         print("choice",choice,"not yet implemented")
