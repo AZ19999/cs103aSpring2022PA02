@@ -87,6 +87,8 @@ def process_choice(choice):
         rows = cur.fetchall()
         for row in rows:
             print(row)
+        con.execute()
+        con.close()
         
     else:
         print("choice",choice,"not yet implemented")
