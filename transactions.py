@@ -2,7 +2,7 @@ import sqlite3
 import csv
 
 class Transaction:
-    def __init__(self):
+    def __init__(self, fileName):
         self.one = 1
         con = sqlite3.connect('transactions.db')
         cur = con.cursor()
@@ -12,7 +12,7 @@ class Transaction:
         con.close()
         
         # load data
-        csvfile = open('data/baby-names.csv','r')
+        csvfile = open(fileName,'r')
         reader = csv.DictReader(csvfile)
         data = [row for row in reader]
         csvfile.close()
