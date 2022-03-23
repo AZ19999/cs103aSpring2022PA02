@@ -79,6 +79,9 @@ def process_choice(choice):
         desc = input("new category description: ")
         cat = {'name':name, 'desc':desc}
         category.update(rowid,cat)
+
+    #our code
+
     elif choice=='4':
         print("print transactions")
         con = sqlite3.connect('transactions.db')
@@ -89,7 +92,11 @@ def process_choice(choice):
             print(row)
         con.execute()
         con.close()
-        
+    elif choice == '6':
+        rowid = int(input("rowid: "))
+        category.delete(rowid)
+    elif choice == '9':
+        category.summarize("year")
     else:
         print("choice",choice,"not yet implemented")
 
