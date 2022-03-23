@@ -80,9 +80,11 @@ def process_choice(choice):
         category.update(rowid,cat)
 
     #our code
-
-
-
+    elif choice == '6':
+        rowid = int(input("rowid: "))
+        category.delete(rowid)
+    elif choice == '9':
+        print("unimplemented")
 
     else:
         print("choice",choice,"not yet implemented")

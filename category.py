@@ -53,9 +53,7 @@ class Category():
 
 
     def add(self,item):
-        ''' add a category to the categories table.
-            this returns the rowid of the inserted element
-        '''
+        ''' add a category to the categories table. this returns the rowid of the inserted element.'''
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()
         cur.execute("INSERT INTO categories VALUES(?,?)",(item['name'],item['desc']))
@@ -67,9 +65,7 @@ class Category():
         return last_rowid[0]
 
     def update(self,rowid,item):
-        ''' add a category to the categories table.
-            this returns the rowid of the inserted element
-        '''
+        ''' updates a category in the categories table. '''
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()
         cur.execute('''UPDATE categories
@@ -80,9 +76,7 @@ class Category():
         con.close()
 
     def delete(self,rowid):
-        ''' add a category to the categories table.
-            this returns the rowid of the inserted element
-        '''
+        ''' deletes a category from the categories table. '''
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()
         cur.execute('''DELETE FROM categories
@@ -90,3 +84,6 @@ class Category():
         ''',(rowid,))
         con.commit()
         con.close()
+    
+    def summarize(self, category):
+        print("unimplemented")
