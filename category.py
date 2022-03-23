@@ -86,4 +86,10 @@ class Category():
         con.close()
     
     def summarize(self, category):
-        print("unimplemented")
+        con= sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        #cur.execute('''DELETE FROM categories
+        #               WHERE rowid=(?);
+        #''',(rowid,))
+        con.commit()
+        con.close()
