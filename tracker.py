@@ -34,8 +34,9 @@ could be replaced with PostgreSQL or Pandas or straight python lists
 from transactions import Transaction
 from category import Category
 import sys
+import sqlite3
 
-transactions = Transaction('tracker.db')
+#transactions = Transaction('tracker.db')
 category = Category('tracker.db')
 
 
@@ -80,12 +81,22 @@ def process_choice(choice):
         category.update(rowid,cat)
 
     #our code
+
+    elif choice=='4':
+        print("print transactions")
+        con = sqlite3.connect('transactions.db')
+        cur = con.choice()
+        cur.execute("SELECT * FROM transactions")
+        rows = cur.fetchall()
+        for row in rows:
+            print(row)
+        con.execute()
+        con.close()
     elif choice == '6':
         rowid = int(input("rowid: "))
         category.delete(rowid)
     elif choice == '9':
         category.summarize("year")
-
     else:
         print("choice",choice,"not yet implemented")
 
