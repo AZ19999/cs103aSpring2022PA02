@@ -96,6 +96,7 @@ def process_choice(choice):
         date = input("please enter the date in yyyymmdd: ")
         category.summarizeDate(date)
     elif choice == '9':
+        year = input("Enter a year: ")
         category.summarize("year")
     elif choice=="11":
         print("0. quit \n 1. show categories \n 2. add category \n 3. modify category \n 4. show transactions \n 5. add transaction")
