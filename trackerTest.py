@@ -33,7 +33,21 @@ def test_summarizeDate():
     y = testCategory.summarizeDate(20050303)
     assert z == y
 
-
+@pytest.mark.summarize_category_test
+def test_summarize_category():
+    testCategory = Category("tracker.db")
+    category = 'food'
+    con = sqlite3.connect('tracker.db')
+    cur = con.cursor()
+    cur.execute('''SELECT category, amount FROM categories
+                       WHERE category=(?) LIMIT 5;
+        ''',(category,))
+    z = cur.fetchall()
+    con.commit()
+    con.close()
+    z = to_cat_dict(z)
+    y = testCategory.summarizeDate(category)
+    assert z == y
 
 @pytest.mark.summarize_year_test
 
@@ -76,19 +90,5 @@ def test_menu():
     y = testCategory.summarizeyear(2005)
     assert z == y
 
-@pytest.mark.summarize_category_test
-def test_summarize_category():
-    testCategory = Category("tracker.db")
-    category = 'food'
-    con = sqlite3.connect('tracker.db')
-    cur = con.cursor()
-    cur.execute('''SELECT category, amount FROM categories
-                       WHERE category=(?) LIMIT 5;
-        ''',(category,))
-    z = cur.fetchall()
-    con.commit()
-    con.close()
-    z = to_cat_dict(z)
-    y = testCategory.summarizeDate(category)
-    assert z == y
+
     
