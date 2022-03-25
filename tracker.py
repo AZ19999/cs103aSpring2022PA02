@@ -83,15 +83,7 @@ def process_choice(choice):
     #our code
 
     elif choice=='4':
-        print("print transactions")
-        con = sqlite3.connect('transactions.db')
-        cur = con.choice()
-        cur.execute("SELECT * FROM transactions")
-        rows = cur.fetchall()
-        for row in rows:
-            print(row)
-        con.execute()
-        con.close()
+        print_transactions(transactions)
     elif choice == '6':
         rowid = int(input("rowid: "))
         category.delete(rowid)
