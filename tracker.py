@@ -57,9 +57,6 @@ menu = '''
 11. print this menu
 '''
 
-
-
-
 def process_choice(choice):
 
     if choice=='0':
@@ -82,19 +79,43 @@ def process_choice(choice):
 
     #our code
 
+
+ 
+       
+        
+
+
+
+
     elif choice=='4':
         print_transactions(transactions)
+        
+    elif choice=='5':
+        itemNum= int(input("Item#: "))
+        amount= int(input("Amount: "))
+        itemCat= input("Category: ")
+        itemDate= int(input("Date: "))
+        description=input("Description: ")
+        cat = {'item#':itemNum,'amount':amount,'category':itemCat,'date':itemDate,'description':description}
+        category.addTransaction(cat)
+        
     elif choice == '6':
         rowid = int(input("rowid: "))
         category.delete(rowid)
+    elif choice == '7':
+        date = input("please enter the date in yyyymmdd: ")
+        category.summarizeDate(date)
     elif choice == '9':
         category.summarize("year")
+    elif choice=="11":
+        print("0. quit \n 1. show categories \n 2. add category \n 3. modify category \n 4. show transactions \n 5. add transaction")
+        print("6. delete transaction \n 7. summarize transactions by date \n 8. summarize transactions by month")
+        print("9. summarize transactions by year \n 10. summarize transactions by category \n 11. print this menu")
     else:
         print("choice",choice,"not yet implemented")
 
     choice = input("> ")
     return(choice)
-
 
 def toplevel():
     ''' handle the user's choice '''
