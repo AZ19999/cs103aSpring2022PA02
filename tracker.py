@@ -100,6 +100,9 @@ def process_choice(choice):
         category.summarizeMonth(date)
     elif choice == '9':
         category.summarize("year")
+    elif category == '10':
+        category_to_summarize = input("please input the category to summarize by: ")
+        category.summarizeCategory(category_to_summarize)
     elif choice=="11":
         print("0. quit \n 1. show categories \n 2. add category \n 3. modify category \n 4. show transactions \n 5. add transaction")
         print("6. delete transaction \n 7. summarize transactions by date \n 8. summarize transactions by month")
