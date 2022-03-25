@@ -4,13 +4,15 @@ from transactions import *
 
 @pytest.mark.delete_test
 def test_delete():
-    testRow = category.select_one(5)
-    category.delete(5)
-    testRow2 = category.select_one(5)
+    testCategory = Category("tracker.db")
+    testRow = testCategory.select_one(5)
+    testCategory.delete(5)
+    testRow2 = testCategory.select_one(5)
     assert testRow != testRow2
     
 @pytest.mark.summarize_year_test
 def test_summarizeYear():
+    testCategory = Category("tracker.db")
     year = 2005
     con = sqlite3.connect('tracker.db')
     cur = con.cursor()
@@ -21,5 +23,5 @@ def test_summarizeYear():
     con.commit()
     con.close()
     z = to_cat_dict(z)
-    y = category.summarizeyear(2005)
+    y = testCategory.summarizeyear(2005)
     assert z == y
