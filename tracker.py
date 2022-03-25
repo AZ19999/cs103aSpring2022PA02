@@ -79,17 +79,8 @@ def process_choice(choice):
 
     #our code
 
-
- 
-       
-        
-
-
-
-
     elif choice=='4':
         print_transactions(transactions)
-        
     elif choice=='5':
         itemNum= int(input("Item#: "))
         amount= int(input("Amount: "))
@@ -98,7 +89,6 @@ def process_choice(choice):
         description=input("Description: ")
         cat = {'item#':itemNum,'amount':amount,'category':itemCat,'date':itemDate,'description':description}
         category.addTransaction(cat)
-        
     elif choice == '6':
         rowid = int(input("rowid: "))
         category.delete(rowid)
