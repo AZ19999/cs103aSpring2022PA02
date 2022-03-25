@@ -85,11 +85,11 @@ class Category():
         con.commit()
         con.close()
     
-    def summarize(self, category):
+    def summarizeDate(self, date):
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()
-        #cur.execute('''DELETE FROM categories
-        #               WHERE rowid=(?);
-        #''',(rowid,))
+        cur.execute('''SELECT category, amount FROM categories
+                       WHERE rowid=(?);
+        ''',(date,))
         con.commit()
         con.close()
