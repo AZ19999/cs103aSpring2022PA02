@@ -57,9 +57,6 @@ menu = '''
 11. print this menu
 '''
 
-
-
-
 def process_choice(choice):
 
     if choice=='0':
@@ -102,7 +99,6 @@ def process_choice(choice):
 
     choice = input("> ")
     return(choice)
-
 
 def toplevel():
     ''' handle the user's choice '''
