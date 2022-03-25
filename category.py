@@ -93,3 +93,30 @@ class Category():
         ''',(date,))
         con.commit()
         con.close()
+
+    def summarizeMonth(self, month):
+        con= sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        #cur.execute('''SELECT category, amount FROM categories
+        #               WHERE rowid=(?);
+        #''',(date,))
+        con.commit()
+        con.close()
+    
+    def summarizeYear(self, year):
+        con= sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        #cur.execute('''SELECT category, amount FROM categories
+        #               WHERE rowid=(?);
+        #''',(date,))
+        con.commit()
+        con.close()
+
+    def summarizeCategory(self, category):
+        con= sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        #cur.execute('''SELECT category, amount FROM categories
+        #               WHERE rowid=(?);
+        #''',(date,))
+        con.commit()
+        con.close()
