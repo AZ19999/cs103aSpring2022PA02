@@ -36,7 +36,7 @@ from category import Category
 import sys
 import sqlite3
 
-#transactions = Transaction('tracker.db')
+transactions = Transaction('tracker.db')
 category = Category('tracker.db')
 
 
