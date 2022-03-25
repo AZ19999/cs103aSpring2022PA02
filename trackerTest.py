@@ -61,3 +61,4 @@ def test_summarize_category():
     z = to_cat_dict(z)
     y = testCategory.summarizeDate(category)
     assert z == y
+    
