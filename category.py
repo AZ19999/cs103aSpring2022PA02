@@ -105,8 +105,10 @@ class Category():
         cur.execute('''SELECT date, amount FROM categories
                        WHERE date=(?) LIMIT 5;
         ''',(date,))
+        tuples = cur.fetchall()
         con.commit()
         con.close()
+        return to_cat_dict(tuples)
 
     def summarizeMonth(self, month):
         con= sqlite3.connect(self.dbfile)
@@ -114,8 +116,10 @@ class Category():
         cur.execute('''SELECT month, amount FROM categories
                        WHERE month=(?) LIMIT 5;
         ''',(month,))
+        tuples = cur.fetchall()
         con.commit()
         con.close()
+        return to_cat_dict(tuples)
     
     def summarizeYear(self, year):
         con= sqlite3.connect(self.dbfile)
@@ -123,8 +127,10 @@ class Category():
         cur.execute('''SELECT year, amount FROM categories
                        WHERE year=(?) LIMIT 5;
         ''',(year,))
+        tuples = cur.fetchall()
         con.commit()
         con.close()
+        return to_cat_dict(tuples)
 
     def summarizeCategory(self, category):
         con= sqlite3.connect(self.dbfile)
@@ -132,6 +138,8 @@ class Category():
         cur.execute('''SELECT category, amount FROM categories
                        WHERE category=(?) LIMIT 5;
         ''',(category,))
+        tuples = cur.fetchall()
         con.commit()
         con.close()
+        return to_cat_dict(tuples)
 
