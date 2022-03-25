@@ -51,11 +51,8 @@ class Category():
         con.close()
         return to_cat_dict(tuples[0])
 
-
     def add(self,item):
-        ''' add a category to the categories table.
-            this returns the rowid of the inserted element
-        '''
+        ''' add a category to the categories table. this returns the rowid of the inserted element.'''
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()
         cur.execute("INSERT INTO categories VALUES(?,?)",(item['name'],item['desc']))
@@ -67,9 +64,7 @@ class Category():
         return last_rowid[0]
 
     def update(self,rowid,item):
-        ''' add a category to the categories table.
-            this returns the rowid of the inserted element
-        '''
+        ''' updates a category in the categories table. '''
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()
         cur.execute('''UPDATE categories
@@ -80,9 +75,7 @@ class Category():
         con.close()
 
     def delete(self,rowid):
-        ''' add a category to the categories table.
-            this returns the rowid of the inserted element
-        '''
+        ''' deletes a category from the categories table. '''
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()
         cur.execute('''DELETE FROM categories
@@ -91,6 +84,7 @@ class Category():
         con.commit()
         con.close()
     
+
     def addTransaction(self,item):
         ''' add a category to the categories table.
             this returns the rowid of the inserted element
@@ -104,3 +98,40 @@ class Category():
         con.commit()
         con.close()
         return last_rowid[0]
+
+    def summarizeDate(self, date):
+        con= sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        cur.execute('''SELECT date, amount FROM categories
+                       WHERE date=(?) LIMIT 5;
+        ''',(date,))
+        con.commit()
+        con.close()
+
+    def summarizeMonth(self, month):
+        con= sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        cur.execute('''SELECT month, amount FROM categories
+                       WHERE month=(?) LIMIT 5;
+        ''',(month,))
+        con.commit()
+        con.close()
+    
+    def summarizeYear(self, year):
+        con= sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        cur.execute('''SELECT year, amount FROM categories
+                       WHERE year=(?) LIMIT 5;
+        ''',(year,))
+        con.commit()
+        con.close()
+
+    def summarizeCategory(self, category):
+        con= sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        cur.execute('''SELECT category, amount FROM categories
+                       WHERE category=(?) LIMIT 5;
+        ''',(category,))
+        con.commit()
+        con.close()
+
