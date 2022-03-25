@@ -102,6 +102,9 @@ def process_choice(choice):
     elif choice == '6':
         rowid = int(input("rowid: "))
         category.delete(rowid)
+    elif choice == '7':
+        date = input("please enter the date in yyyymmdd: ")
+        category.summarizeDate(date)
     elif choice == '9':
         category.summarize("year")
     elif choice=="11":
