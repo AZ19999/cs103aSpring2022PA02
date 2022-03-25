@@ -1,6 +1,6 @@
 import pytest
-from category import Category
-from transactions import Transaction
+from category import *
+from transactions import *
 
 @pytest.mark.delete_test
 def test_delete():
@@ -20,5 +20,6 @@ def test_summarizeYear():
     z = cur.fetchall()
     con.commit()
     con.close()
+    z = to_cat_dict(z)
     y = category.summarizeyear(2005)
     assert z == y

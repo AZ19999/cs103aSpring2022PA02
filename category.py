@@ -108,7 +108,7 @@ class Category():
         tuples = cur.fetchall()
         con.commit()
         con.close()
-        return to_cat_dict(tuples[0])
+        return to_cat_dict(tuples)
 
     def summarizeMonth(self, month):
         con= sqlite3.connect(self.dbfile)
@@ -119,7 +119,7 @@ class Category():
         tuples = cur.fetchall()
         con.commit()
         con.close()
-        return to_cat_dict(tuples[0])
+        return to_cat_dict(tuples)
     
     def summarizeYear(self, year):
         con= sqlite3.connect(self.dbfile)
@@ -130,7 +130,7 @@ class Category():
         tuples = cur.fetchall()
         con.commit()
         con.close()
-        return to_cat_dict(tuples[0])
+        return to_cat_dict(tuples)
 
     def summarizeCategory(self, category):
         con= sqlite3.connect(self.dbfile)
@@ -141,5 +141,5 @@ class Category():
         tuples = cur.fetchall()
         con.commit()
         con.close()
-        return to_cat_dict(tuples[0])
+        return to_cat_dict(tuples)
 
