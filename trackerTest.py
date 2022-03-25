@@ -1,4 +1,6 @@
 import pytest
+from category import Category
+from transactions import Transaction
 
 @pytest.mark.delete_test
 def test_delete():
