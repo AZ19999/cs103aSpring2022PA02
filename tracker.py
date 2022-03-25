@@ -99,6 +99,7 @@ def process_choice(choice):
         date = input("please enter the date in yyyymm: ")
         category.summarizeMonth(date)
     elif choice == '9':
+        year = input("Enter a year: ")
         category.summarize("year")
     elif category == '10':
         category_to_summarize = input("please input the category to summarize by: ")

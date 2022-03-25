@@ -111,8 +111,8 @@ class Category():
     def summarizeMonth(self, month):
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()
-        cur.execute('''SELECT month, avg(amount) FROM categories
-                       WHERE month=(?);
+        cur.execute('''SELECT month, amount FROM categories
+                       WHERE month=(?) LIMIT 5;
         ''',(month,))
         con.commit()
         con.close()
